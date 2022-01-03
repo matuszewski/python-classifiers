@@ -56,8 +56,8 @@ test_data = [[25, 1, 0, 2, 0], [26, 2, 0, 1, 0], [33, 3, 3, 1], [24, 1, 0, 0]]
 test_data = [[22,1,0,2], [26,2,0,1], [26,2,1,1], [28,1,0,2], [22,2,0,1], [26,1,1,0], [27,2,0,1], [32,3,0,1], [28,2,0,1], [27,1,1,1], [36,1,0,1], [33,1,1,0], [23,1,1,1], [20,1,0,1], [29,1,2,0], [25,1,2,0], [25,1,0,1], [20,1,2,2], [37,3,0,1], [24,1,2,0]]
 test_labels = [0,1,0,0,1,0,0,1,0,1,0,1,0,0,1,0,0,1,1,1]
 
-liczba_testow = 10
-for i in range(10):
+liczba_testow = 100
+for i in range(liczba_testow):
     # metoda klasyfikatora drzewa decyzyjnego
     dtc_clf = tree.DecisionTreeClassifier()
     dtc_clf = dtc_clf.fit(X, Y)
@@ -100,14 +100,30 @@ for i in range(10):
 dokładnosc = np.array([dtc_acc, rfc_acc, lr_acc, svc_acc, knb_acc])
 max_acc = np.argmax(dokładnosc)
 
-print(f'Drzewo decyzyjne {dtc_acc}')
-print(f'Decyzyjny las losowy {rfc_acc}')
-print(f'Regresja logistyczna {lr_acc}')
-print(f'SVC {svc_acc}')
-print(f'Najbliżsi sąsiedzi {knb_acc}')
+#print(f'Drzewo decyzyjne {dtc_acc}')
+#print(f'Decyzyjny las losowy {rfc_acc}')
+#print(f'Regresja logistyczna {lr_acc}')
+#print(f'SVC {svc_acc}')
+#print(f'Najbliżsi sąsiedzi {knb_acc}')
+
+## Python program to print the data
+podsumowanie = {
+    "Drzewo decyzyjne": dtc_acc,
+    "Decyzyjny las losowy": rfc_acc,
+    "Regresja logistyczna": lr_acc,
+    "Metoda wektorów podporowych SVC": svc_acc,
+    "k-Najbliższych sąsiadów": knb_acc,
+}
+
+print("{:<40} {:<12}".format('KLASYFIKATOR', 'SKUTECZNOŚĆ'))
+print('-'*55)
+for element in podsumowanie.items():
+    klasyfikator, skutecznosc = element
+    print("{:<35} {:<12}".format(klasyfikator, skutecznosc))
+
 
 klasyfikatory = ['Drzewo decyzyjne', 'Decyzyjny las losowy', 'Regresja logistyczna', 'SVC', 'Najbliżsi sąsiedzi']
-print('\n' + klasyfikatory[max_acc] + ' jest najlepszym klasyfikatorem do tego problemu problemu.\n')
+print(f' Najlepszy klasyfiaktor do tego problemu: {klasyfikatory[max_acc]}')
 
 print(f'liczba kompletow danych: {len(X)}')
 print(f'liczba iteracji: {liczba_testow}')
