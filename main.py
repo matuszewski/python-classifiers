@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# https://archive.ics.uci.edu/ml/machine-learning-databases/00472/
+# dataset used: https://archive.ics.uci.edu/ml/machine-learning-databases/00472/
 
 from sklearn import tree
 from sklearn.neighbors import KNeighborsClassifier
