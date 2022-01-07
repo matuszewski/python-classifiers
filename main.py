@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # dataset used: https://archive.ics.uci.edu/ml/machine-learning-databases/00472/
-# test change
+# test change02
 from sklearn import tree
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
