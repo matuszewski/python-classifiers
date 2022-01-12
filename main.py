@@ -124,8 +124,8 @@ print("SVC " + s_acc)
 print("Najbliżsi sąsiedzi " + kNB_acc)
 
 
-dokładnosc = np.array([dtc_tree_acc, rfc_acc, l_acc, s_acc, kNB_acc])
-max_acc = np.argmax(dokładnosc)
+dokladnosc = np.array([dtc_tree_acc, rfc_acc, l_acc, s_acc, kNB_acc])
+max_acc = np.argmax(dokladnosc)
 
 klasyfikatory = ['Drzewo decyzyjne', 'Decyzyjny las losowy', 'Regresja logistyczna', 'SVC', 'Najbliżsi sąsiedzi']
 print('\n' + klasyfikatory[max_acc] + " jest najlepszym klasyfikatorem problemu.\n")
