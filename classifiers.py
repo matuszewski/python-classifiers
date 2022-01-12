@@ -24,7 +24,7 @@ lr_acc = 0
 svc_acc = 0
 knb_acc = 0
 
-dataset_filename = 'caesarian-sections-dataset.csv'
+dataset_filename = 'datasets/caesarian-sections-dataset.csv'
 dataset_file = open(dataset_filename)
 dataset = list(csv.reader(dataset_file, delimiter=','))
 
