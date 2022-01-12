@@ -117,15 +117,15 @@ for i in range(100):
     kNB_acc += accuracy_score(kNB_prediction, test_labels)
     pass
 
-print(f'Drzewo decyzyjne {dtc_tree_acc}')
-print(f'Decyzyjny las losowy {rfc_acc}')
-print(f'Regresja logistyczna {l_acc}')
-print(f'SVC {s_acc}')
-print(f'Najbliżsi sąsiedzi {kNB_acc}')
+print(f"Drzewo decyzyjne {dtc_tree_acc}")
+print(f"Decyzyjny las losowy {rfc_acc}")
+print(f"Regresja logistyczna {l_acc}")
+print(f"SVC {s_acc}')
+print(f"Najbliżsi sąsiedzi {kNB_acc}")
 
 
 dokładnosc = np.array([dtc_tree_acc, rfc_acc, l_acc, s_acc, kNB_acc])
 max_acc = np.argmax(dokładnosc)
 
 klasyfikatory = ['Drzewo decyzyjne', 'Decyzyjny las losowy', 'Regresja logistyczna', 'SVC', 'Najbliżsi sąsiedzi']
-print('\n' + klasyfikatory[max_acc] + ' jest najlepszym klasyfikatorem problemu.\n')
+print('\n' + klasyfikatory[max_acc] + " jest najlepszym klasyfikatorem problemu.\n")
