@@ -19,15 +19,17 @@ from sklearn.metrics import accuracy_score
 
 
 # ustawianie dokladnosci wszystkich metod na 0
-dtcAcc = 0
-rfcAcc = 0
-lrAcc = 0
+dtcacc = 0
+RFC_ACC = 0
+LRACC = 0
 svcAcc = 0
 knbAcc = 0
 
 Datafile = 'datasets/caesarian-sections.csv'
 dataset_file = open(Datafile)
 dataset = list(csv.reader(dataset_file, delimiter=','))
+
+TEST_ITERATIONS = 100
 
 # ustawianie legedny (nagłówka) oraz danych
 legend = dataset[0]
@@ -62,9 +64,7 @@ test_data = [[22, 1, 0, 2], [26, 2, 0, 1], [26, 2, 1, 1],
              [37, 3, 0, 1], [24, 1, 2, 0]]
 test_labels = [0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1]
 
-LiczbaTestow = 100
-
-for i in range(LiczbaTestow):
+for i in range(TEST_ITERATIONS):
     # metoda klasyfikatora drzewa decyzyjnego
     dtcClf = tree.DecisionTreeClassifier()
     dtcClf = dtcClf.fit(X, Y)
@@ -96,19 +96,19 @@ for i in range(LiczbaTestow):
     # print(knb_prediction)
 
     # określanie dokładności klasyfikacji
-    dtcAcc += accuracy_score(dtcPrediction, test_labels)
-    rfcAcc += accuracy_score(rfcPrediction, test_labels)
-    lrAcc += accuracy_score(lrPrediction, test_labels)
+    dtcacc += accuracy_score(dtcPrediction, test_labels)
+    RFC_ACC += accuracy_score(rfcPrediction, test_labels)
+    LRACC += accuracy_score(lrPrediction, test_labels)
     svcAcc += accuracy_score(svcPrediction, test_labels)
     knbAcc += accuracy_score(knbPrediction, test_labels)
 
-dokladnosc = np.array([dtcAcc, rfcAcc, lrAcc, svcAcc, knbAcc])
+dokladnosc = np.array([dtcacc, RFC_ACC, LRACC, svcAcc, knbAcc])
 maxAcc = np.argmax(dokladnosc)
 
 podsumowanie = {
-    "Drzewo decyzyjne": dtcAcc,
-    "Decyzyjny las losowy": rfcAcc,
-    "Regresja logistyczna": lrAcc,
+    "Drzewo decyzyjne": dtcacc,
+    "Decyzyjny las losowy": RFC_ACC,
+    "Regresja logistyczna": LRACC,
     "Metoda wektorow podporowych SVC": svcAcc,
     "k-Najbliższych sasiadów": knbAcc,
 }
@@ -129,4 +129,4 @@ klasyfikatory = ['Drzewo decyzyjne',
 print("Najlepszy klasyfiaktor do tego problemu: " + klasyfikatory[maxAcc])
 
 print("liczba kompletow danych: " + str(len(X)))
-print("liczba iteracji: " + str(LiczbaTestow))
+print("liczba iteracji: " + str(TEST_ITERATIONS))
