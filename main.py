@@ -76,8 +76,6 @@ for record in data:
 test_data = [[1, 65, 0], [0, 30, 1], [1, 56, 1], [0, 79, 3]]
 test_labels = [1, 0, 1, 0]
 
-
-
 for i in range(100):
     # Drzewa decyzyjne
     dtc_clf = tree.DecisionTreeClassifier()
