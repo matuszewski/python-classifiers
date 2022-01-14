@@ -123,7 +123,6 @@ print("Regresja logistyczna " + l_acc)
 print("SVC " + s_acc)
 print("Najbliżsi sąsiedzi " + kNB_acc)
 
-
 dokladnosc = np.array([dtc_tree_acc, rfc_acc, l_acc, s_acc, kNB_acc])
 max_acc = np.argmax(dokladnosc)
 
