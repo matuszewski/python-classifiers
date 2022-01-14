@@ -94,8 +94,8 @@ for i in range(liczba_testow):
     
     system('cls')
 
-dokładnosc = np.array([dtc_acc, rfc_acc, lr_acc, svc_acc, knb_acc])
-max_acc = np.argmax(dokładnosc)
+dokladnosc = np.array([dtc_acc, rfc_acc, lr_acc, svc_acc, knb_acc])
+max_acc = np.argmax(dokladnosc)
 
 #print(f'Drzewo decyzyjne {dtc_acc}')
 #print(f'Decyzyjny las losowy {rfc_acc}')
