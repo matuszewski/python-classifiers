@@ -91,11 +91,11 @@ for i in range(liczba_testow):
     #print(knb_prediction)
 
     # określanie dokładności klasyfikacji
-    dtcAcc += accuracy_score(dtc_prediction, test_labels)
-    rfcAcc += accuracy_score(rfc_prediction, test_labels)
-    lrAcc += accuracy_score(lr_prediction, test_labels)
-    svcAcc += accuracy_score(svc_prediction, test_labels)
-    knbAcc += accuracy_score(knb_prediction, test_labels)
+    dtcAcc += accuracy_score(dtcPrediction, test_labels)
+    rfcAcc += accuracy_score(rfcPrediction, test_labels)
+    lrAcc += accuracy_score(lrPrediction, test_labels)
+    svcAcc += accuracy_score(svcPrediction, test_labels)
+    knbAcc += accuracy_score(knbPrediction, test_labels)
     
     system('cls')
 
