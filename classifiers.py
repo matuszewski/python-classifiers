@@ -64,7 +64,7 @@ test_labels = [0,1,0,0,1,0,0,1,0,1,0,1,0,0,1,0,0,1,1,1]
 
 LiczbaTestow = 100
 
-for i in range(liczba_testow):
+for i in range(LiczbaTestow):
     # metoda klasyfikatora drzewa decyzyjnego
     dtcClf = tree.DecisionTreeClassifier()
     dtcClf = dtcClf.fit(X, Y)
