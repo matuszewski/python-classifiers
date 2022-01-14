@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# docstring
+"""
+Program for choosing best method of mathematical classification based on provided dataset.
+"""
+
 # DATASET https://archive.ics.uci.edu/ml/machine-learning-databases/00472/
 from os import system
 import csv
@@ -20,8 +25,8 @@ lrAcc = 0
 svcAcc = 0
 knbAcc = 0
 
-dataset_filename = 'datasets/caesarian-sections.csv'
-dataset_file = open(dataset_filename)
+Datafile = 'datasets/caesarian-sections.csv'
+dataset_file = open(Datafile)
 dataset = list(csv.reader(dataset_file, delimiter=','))
 
 # ustawianie legedny (nagłówka) oraz danych
@@ -31,14 +36,14 @@ data = dataset[1:]
 X = []
 Y = []
 
-for record in data:    
+for record in data:
     #___________wiek____________liczba dzieci___czas przyjazdu__czy byly problemy kard.
     X.append([  int(record[0]), int(record[1]), int(record[2]), int(record[3])  ])
-    
+
     #___________cesarskie ciecie
     Y.append(   int(record[4])  )
 
-# wyswietlenie danych 
+# wyswietlenie danych
 #print(X)
 #print('-' * 30)
 #print(Y)
@@ -57,7 +62,7 @@ test_data = [[22,1,0,2], [26,2,0,1], [26,2,1,1],
              [37,3,0,1], [24,1,2,0]]
 test_labels = [0,1,0,0,1,0,0,1,0,1,0,1,0,0,1,0,0,1,1,1]
 
-liczba_testow = 100
+LiczbaTestow = 100
 
 for i in range(liczba_testow):
     # metoda klasyfikatora drzewa decyzyjnego
@@ -96,8 +101,6 @@ for i in range(liczba_testow):
     lrAcc += accuracy_score(lrPrediction, test_labels)
     svcAcc += accuracy_score(svcPrediction, test_labels)
     knbAcc += accuracy_score(knbPrediction, test_labels)
-    
-    system('cls')
 
 dokladnosc = np.array([dtcAcc, rfcAcc, lrAcc, svcAcc, knbAcc])
 maxAcc = np.argmax(dokladnosc)
@@ -106,11 +109,11 @@ podsumowanie = {
     "Drzewo decyzyjne": dtcAcc,
     "Decyzyjny las losowy": rfcAcc,
     "Regresja logistyczna": lrAcc,
-    "Metoda wektorów podporowych SVC": svcAcc,
-    "k-Najbliższych sąsiadów": knbAcc,
+    "Metoda wektorow podporowych SVC": svcAcc,
+    "k-Najbliższych sasiadów": knbAcc,
 }
 
-print("{:<40} {:<12}".format('KLASYFIKATOR', 'SKUTECZNOŚĆ'))
+print("{:<40} {:<12}".format('KLASYFIKATOR', 'SKUTECZNOSC'))
 print('-'*55)
 for element in podsumowanie.items():
     klasyfikator, skutecznosc = element
@@ -120,9 +123,9 @@ klasyfikatory = ['Drzewo decyzyjne',
                  'Decyzyjny las losowy',
                  'Regresja logistyczna',
                  'SVC',
-                 'Najbliżsi sąsiedzi']
+                 'Najblizsi sasiedzi']
 
 print("Najlepszy klasyfiaktor do tego problemu: " + klasyfikatory[maxAcc])
 
 print("liczba kompletow danych: " + str(len(X)))
-print("liczba iteracji: " + str(liczba_testow))
+print("liczba iteracji: " + str(LiczbaTestow))
