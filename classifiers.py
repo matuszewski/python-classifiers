@@ -19,21 +19,21 @@ from sklearn.metrics import accuracy_score
 
 
 # ustawianie dokladnosci wszystkich metod na 0
-dtcacc = 0
+DTC_ACC = 0
 RFC_ACC = 0
-LRACC = 0
-svcAcc = 0
-knbAcc = 0
+LR_ACC = 0
+SVC_ACC = 0
+KNB_ACC = 0
 
-Datafile = 'datasets/caesarian-sections.csv'
-dataset_file = open(Datafile)
-dataset = list(csv.reader(dataset_file, delimiter=','))
+DATASET_FILE = 'datasets/caesarian-sections.csv'
+DATASET_FILE_STREAM = open(DATASET_FILE)
+DATASET = list(csv.reader(DATASET_FILE_STREAM, delimiter=','))
 
 TEST_ITERATIONS = 100
 
 # ustawianie legedny (nagłówka) oraz danych
-legend = dataset[0]
-data = dataset[1:]
+legend = DATASET[0]
+data = DATASET[1:]
 
 X = []
 Y = []
@@ -96,21 +96,21 @@ for i in range(TEST_ITERATIONS):
     # print(knb_prediction)
 
     # określanie dokładności klasyfikacji
-    dtcacc += accuracy_score(dtcPrediction, test_labels)
+    DTC_ACC += accuracy_score(dtcPrediction, test_labels)
     RFC_ACC += accuracy_score(rfcPrediction, test_labels)
-    LRACC += accuracy_score(lrPrediction, test_labels)
-    svcAcc += accuracy_score(svcPrediction, test_labels)
-    knbAcc += accuracy_score(knbPrediction, test_labels)
+    LR_ACC += accuracy_score(lrPrediction, test_labels)
+    SVC_ACC += accuracy_score(svcPrediction, test_labels)
+    KNB_ACC += accuracy_score(knbPrediction, test_labels)
 
-dokladnosc = np.array([dtcacc, RFC_ACC, LRACC, svcAcc, knbAcc])
+dokladnosc = np.array([DTC_ACC, RFC_ACC, LR_ACC, SVC_ACC, KNB_ACC])
 maxAcc = np.argmax(dokladnosc)
 
 podsumowanie = {
-    "Drzewo decyzyjne": dtcacc,
+    "Drzewo decyzyjne": DTC_ACC,
     "Decyzyjny las losowy": RFC_ACC,
-    "Regresja logistyczna": LRACC,
-    "Metoda wektorow podporowych SVC": svcAcc,
-    "k-Najbliższych sasiadów": knbAcc,
+    "Regresja logistyczna": LR_ACC,
+    "Metoda wektorow podporowych SVC": SVC_ACC,
+    "k-Najbliższych sasiadów": KNB_ACC,
 }
 
 print("{:<40} {:<12}".format('KLASYFIKATOR', 'SKUTECZNOSC'))
