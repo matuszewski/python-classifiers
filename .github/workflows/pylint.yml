@@ -19,6 +19,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
+        sudo apt-get update
         sudo apt-get install -y python3-sklearn python3-sklearn-lib
         python -m pip install --upgrade pip
         pip install pylint scikit-learn numpy
