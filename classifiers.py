@@ -25,8 +25,9 @@ SVC_ACC = 0
 KNB_ACC = 0
 
 DATASET_FILE = 'datasets/caesarian-sections.csv'
-DATASET_FILE_STREAM = open(DATASET_FILE)
-DATASET = list(csv.reader(DATASET_FILE_STREAM, delimiter=','))
+with open(DATASET_FILE, "r", encoding="utf-8") as DATASET_FILE_STREAM:
+#DATASET_FILE_STREAM = open(DATASET_FILE, mode="r", encoding="utf-8")
+    DATASET = list(csv.reader(DATASET_FILE_STREAM, delimiter=','))
 
 TEST_ITERATIONS = 100
 
@@ -112,12 +113,12 @@ podsumowanie = {
     "k-Najbliższych sasiadów": KNB_ACC,
 }
 
-print("{:<40} {:<12}".format('KLASYFIKATOR', 'SKUTECZNOSC'))
+print('KLASYFIKATOR SKUTECZNOSC')
 print('-'*55)
 
 for element in podsumowanie.items():
     klasyfikator, skutecznosc = element
-    print("{:<35} {:<12}".format(klasyfikator, skutecznosc))
+    print(klasyfikator + " " + str(skutecznosc) )
 
 klasyfikatory = ['Drzewo decyzyjne',
                  'Decyzyjny las losowy',
