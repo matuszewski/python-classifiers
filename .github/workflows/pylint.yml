@@ -19,8 +19,9 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
+        apt install python3-sklearn python3-sklearn-lib -y
         python -m pip install --upgrade pip
-        pip install pylint
+        pip install pylint scikit-learn numpy
     - name: Analysing the code with pylint
       run: |
         pylint classifiers.py
