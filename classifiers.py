@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# docstring
 """
 Program for choosing best method of mathematical classification based on provided dataset.
 """
