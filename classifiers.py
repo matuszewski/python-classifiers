@@ -4,7 +4,7 @@
 """
 Program for choosing best method of mathematical classification based on provided dataset.
 """
-# DATASET https://archive.ics.uci.edu/ml/machine-learning-databases/00472/
+# DATASET https://archive.ics.uci.edu/ml/machine-learning-databases/00472
 import csv
 import numpy as np
 from sklearn import tree
