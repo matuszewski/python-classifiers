@@ -120,7 +120,7 @@ for element in podsumowanie.items():
 
 
 klasyfikatory = ['Drzewo decyzyjne', 'Decyzyjny las losowy', 'Regresja logistyczna', 'SVC', 'Najbliżsi sąsiedzi']
-print(f' Najlepszy klasyfiaktor do tego problemu: {klasyfikatory[max_acc]}')
+print(f'\nNajlepszy klasyfiaktor do tego problemu: {klasyfikatory[max_acc]}')
 
 print(f'liczba kompletow danych: {len(X)}')
 print(f'liczba iteracji: {liczba_testow}')
